@@ -1,8 +1,14 @@
 import { ReactElementType } from 'shared/ReactTypes';
 import { FiberNode } from './fiber';
 import { UpdateQueue, processUpdateQueue } from './updateQueue';
-import { HostComponent, HostRoot, HostText } from './workTags';
+import {
+	FunctionComponent,
+	HostComponent,
+	HostRoot,
+	HostText
+} from './workTags';
 import { mountChildFibers, reconcileChildFibers } from './childFibers';
+import { renderWithHooks } from './fiberHooks';
 
 // 递归中的递阶段
 export function beginWork(workInProgress: FiberNode) {
@@ -15,6 +21,8 @@ export function beginWork(workInProgress: FiberNode) {
 		// HostText没有beginWork工作流程(因为没有子节点), 文本节点
 		case HostText:
 			return null;
+		case FunctionComponent:
+			return updateFunctionComponent(workInProgress);
 		default:
 			if (__DEV__) {
 				console.warn('beginWork未实现类型');
@@ -22,6 +30,11 @@ export function beginWork(workInProgress: FiberNode) {
 			break;
 	}
 	return null;
+}
+export function updateFunctionComponent(workInProgress: FiberNode) {
+	const nextChildren = renderWithHooks(workInProgress);
+	reconcileChildren(workInProgress, nextChildren);
+	return workInProgress.child;
 }
 // 1.计算状态的最新值
 // 2.创建子fiberNode

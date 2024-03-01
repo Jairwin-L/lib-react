@@ -6,7 +6,12 @@ import {
 	createTextInstance
 } from 'react-dom/src/hostConfig';
 import { FiberNode } from './fiber';
-import { HostComponent, HostRoot, HostText } from './workTags';
+import {
+	FunctionComponent,
+	HostComponent,
+	HostRoot,
+	HostText
+} from './workTags';
 import { NoFlags } from './fiberFlags';
 
 // 递归中的归阶段
@@ -39,6 +44,9 @@ export function completeWork(workInProgress: FiberNode) {
 			bubbleProperties(workInProgress);
 			return null;
 		case HostRoot:
+			bubbleProperties(workInProgress);
+			return null;
+		case FunctionComponent:
 			bubbleProperties(workInProgress);
 			return null;
 		default:

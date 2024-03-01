@@ -4,11 +4,13 @@ import { Flags, NoFlags } from './fiberFlags';
 import { Container } from 'react-dom/src/hostConfig';
 
 export class FiberNode {
-	type: unknown;
+	// eslint-disable-next-line
+	type: any;
 	tag: WorkTag;
 	pendingProps: Props;
 	key: Key;
-	stateNode: unknown;
+	// eslint-disable-next-line
+	stateNode: any;
 	ref: Ref;
 
 	return: FiberNode | null;
@@ -17,11 +19,13 @@ export class FiberNode {
 	index: number;
 
 	memoizedProps: Props | null;
-	memoizedState: unknown;
+	// eslint-disable-next-line
+	memoizedState: any;
 	alternate: FiberNode | null;
 	flags: Flags;
 	subTreeFlags: Flags;
-	updateQueue: unknown;
+	// eslint-disable-next-line
+	updateQueue: any;
 	constructor(tag: WorkTag, pendingProps: Props, key: Key) {
 		// 实例
 		this.tag = tag;
