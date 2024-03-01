@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/packages/react/node_modules
+/packages/react-dom/node_modules
+/packages/react-reconciler/node_modules
 /.pnp
 .pnp.js
 dist

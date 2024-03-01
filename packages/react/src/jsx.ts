@@ -9,7 +9,7 @@ import {
 	Type
 } from 'shared/ReactTypes';
 
-const ReactElement = function (
+function ReactElement(
 	type: Type,
 	key: Key,
 	ref: Ref,
@@ -24,7 +24,7 @@ const ReactElement = function (
 		__mark: 'Jairwin'
 	};
 	return element;
-};
+}
 // TODO:ts类型
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function jsx(type: ElementType, config: any, ...maybeChildren: any) {
