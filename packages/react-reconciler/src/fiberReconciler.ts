@@ -27,6 +27,7 @@ export function updateContainer(
 		hostRootFiber.updateQueue as UpdateQueue<ReactElementType | null>,
 		update
 	);
+	console.log(`123----->：`, 1111);
 	// 开始调度
 	scheduleUpdateOnFiber(hostRootFiber);
 	return element;

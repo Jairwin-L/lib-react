@@ -12,6 +12,7 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"noEmit": true,
+		"jsx": "react",
 		// TODO:"noUnusedLocals": true,
 		// "noUnusedLocals": false,
 		// TODO:"noUnusedParameters": true,

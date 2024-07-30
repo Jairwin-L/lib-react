@@ -11,7 +11,9 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		element: ReactElementType
 	) {
 		// TODO:currentFiber
-		console.log(currentFiber);
+		if (currentFiber) {
+			console.log(currentFiber);
+		}
 		// 根据element创建fiber
 		const fiber = createFiberFromElement(element);
 		fiber.return = returnFiber;
@@ -23,7 +25,9 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		content: string | number
 	) {
 		// TODO:currentFiber
-		console.log(currentFiber);
+		if (currentFiber) {
+			console.log(currentFiber);
+		}
 		const fiber = new FiberNode(HostText, { content }, null);
 		fiber.return = returnFiber;
 		return fiber;
